@@ -2,9 +2,10 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { InfinityIcon } from "lucide-react";
+import { courses } from "@/db/schema";
 
 type Props = {
-  activeCourse: { imageSrc: string; title: string }; // todo:replace with actual data type
+  activeCourse: typeof courses.$inferSelect; // todo:replace with actual data type
   hearts: number;
   points: number;
   hasActiveSubscription: boolean;
@@ -49,7 +50,11 @@ export const UserProgress = ({
             width={22}
             height={22}
           />
-          {hasActiveSubscription? <InfinityIcon className="h-4 w-4 stroke-[3]"/>:hearts}
+          {hasActiveSubscription ? (
+            <InfinityIcon className="h-4 w-4 stroke-[3]" />
+          ) : (
+            hearts
+          )}
         </Button>
       </Link>
     </div>
