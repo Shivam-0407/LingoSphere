@@ -1,5 +1,5 @@
 import { getCourses, getUserProgress } from "@/db/queries";
-import { List } from "./list";
+import { List } from "./_components/list";
 
 const CoursesPage = async () => {
   const coursesData = getCourses();
